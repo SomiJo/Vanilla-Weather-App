@@ -15,36 +15,46 @@
 
 <body>
     <div class="container">
-        <div class="weatherApp">
-            <h1>
-                New York
-            </h1>
-            <ul>
-                <li>
-                    Monday 16:20
-                </li>
-                <li>
-                    Mostly sunny
-                </li>
-            </ul>
-            <div class="row">
-                <div class="col-6">
-                    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Mostly-sunny" />
-                    32°C | °F
-                </div>
-                <div class="col-6">
+        <div class="  weatherApp-wrapper">
+            <div class="weatherApp">
+                <div class="overview">
+                    <h1>
+                        New York
+                    </h1>
                     <ul>
                         <li>
-                            Precipitation: 2%
-
+                            Monday 16:20
                         </li>
                         <li>
-                            Humidity: 51%
-                        </li>
-                        <li>
-                            Wind: 11 km/h
+                            Mostly sunny
                         </li>
                     </ul>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="d-flex weather-temperature">
+                            <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Mostly-sunny" />
+                            <div>
+                                <strong> 32</strong>
+                                <span class="units">°C | <a href="#"> °F</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <ul>
+                            <li>
+                                Precipitation: 2%
+
+                            </li>
+                            <li>
+                                Humidity: 51%
+                            </li>
+                            <li>
+                                Wind: 11 km/h
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
 
             </div>
@@ -54,8 +64,6 @@
                 Jodeir
             </small>
         </div>
-
-
     </div>
 
 
