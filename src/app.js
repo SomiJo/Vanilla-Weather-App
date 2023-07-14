@@ -36,7 +36,16 @@ function displayInformation(responce) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src", responce.data.condition.icon_url);
 }
-let apiKey = "8a8edboca2bc2t75fa3dfdc820f30444";
-let city = "Kabul";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayInformation);
+function search(city) {
+  let apiKey = "8a8edboca2bc2t75fa3dfdc820f30444";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayInformation);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
