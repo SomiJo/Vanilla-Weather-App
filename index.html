@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
     <title>Document</title>
 </head>
@@ -18,15 +19,12 @@
         <div class="  weatherApp-wrapper">
             <div class="weatherApp">
                 <div class="overview">
-                    <h1>
-                        New York
-                    </h1>
+                    <h1 id="city"></h1>
                     <ul>
                         <li>
                             Monday 16:20
                         </li>
-                        <li>
-                            Mostly sunny
+                        <li id="description">
                         </li>
                     </ul>
                 </div>
@@ -35,7 +33,7 @@
                         <div class="d-flex weather-temperature">
                             <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Mostly-sunny" />
                             <div>
-                                <strong> 32</strong>
+                                <strong id="temperature"></strong>
                                 <span class="units">°C | <a href="#"> °F</a></span>
                             </div>
                         </div>
@@ -43,14 +41,15 @@
                     <div class="col-6">
                         <ul>
                             <li>
-                                Precipitation: 2%
+                                Precipitation: <span id="precipitation"></span>%
 
                             </li>
                             <li>
-                                Humidity: 51%
+
+                                Humidity: <span id="humidity"></span>%
                             </li>
                             <li>
-                                Wind: 11 km/h
+                                Wind: <span id="wind"></span> km/h
                             </li>
                         </ul>
                     </div>
