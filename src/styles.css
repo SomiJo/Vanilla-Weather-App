@@ -17,14 +17,17 @@ ul {
 
 li {
   list-style: none;
-  text-transform: capitalize;
   color: #7075a5;
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
 }
+li::first-letter {
+  text-transform: capitalize;
+}
 .weatherApp-wrapper {
-  max-width: 600px;
+  max-width: 500px;
+  max-height: 400px;
   margin: 30px auto;
 }
 .weatherApp {
@@ -35,19 +38,36 @@ li {
 .overview {
   margin-bottom: 20px;
 }
+.weather-temperature {
+  display: flex;
+  align-items: center;
+}
 .weather-temperature img {
-  margin-right: 10px;
-  height: 64px;
-  width: 64px;
+  margin-right: 5px;
+  height: 100px;
+  width: 100px;
 }
 .weather-temperature strong {
   color: #202124;
   font-size: 48px;
   line-height: 56px;
   font-weight: 400;
+  margin-left: 0;
+  padding-left: 2px;
 }
 .weather-temperature .units {
   position: relative;
   font-size: 16px;
-  top: -24px;
+  top: -12px;
+}
+.temperature-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
 }

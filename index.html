@@ -21,31 +21,23 @@
                 <div class="overview">
                     <h1 id="city"></h1>
                     <ul>
-                        <li>
-                            Monday 16:20
-                        </li>
-                        <li id="description">
-                        </li>
+                        <li id="date"></li>
+                        <li id="description"></li>
                     </ul>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-8">
                         <div class="d-flex weather-temperature">
-                            <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Mostly-sunny" />
-                            <div>
+                            <img src="#" alt="Mostly-sunny" id="icon" />
+                            <div class="temperature-wrapper">
                                 <strong id="temperature"></strong>
                                 <span class="units">°C | <a href="#"> °F</a></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <ul>
+                    <div class="col-4">
+                        <ul class="weather-info">
                             <li>
-                                Precipitation: <span id="precipitation"></span>%
-
-                            </li>
-                            <li>
-
                                 Humidity: <span id="humidity"></span>%
                             </li>
                             <li>
