@@ -23,10 +23,12 @@ function formqatDate(timestamp) {
 function displayInformation(responce) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(responce.data.temperature.current);
-  let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = responce.data.city;
+  let cityElement = document.querySelector("#location");
+  cityElement.innerHTML = `${responce.data.city}, ${responce.data.country}`;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = responce.data.condition.description;
+  let feelslikeElement = document.querySelector("#feels-like");
+  feelslikeElement.innerHTML = Math.round(responce.data.temperature.feels_like);
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = responce.data.temperature.humidity;
   let windElement = document.querySelector("#wind");
@@ -72,4 +74,21 @@ let farenheitLink = document.querySelector("#farenheit-link");
 farenheitLink.addEventListener("click", displayFarenheitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
-search("Kabul");
+
+window.onload = function () {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(searchCurrentLocation);
+  }
+
+  function searchCurrentLocation(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    search(latitude, longitude);
+  }
+
+  function search(latitude, longitude) {
+    let apiKey = "8a8edboca2bc2t75fa3dfdc820f30444";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayInformation);
+  }
+};
