@@ -43,7 +43,7 @@ li::first-letter {
   align-items: center;
 }
 .weather-temperature img {
-  margin-right: 5px;
+  margin-right: 5 px;
   height: 100px;
   width: 100px;
 }
@@ -70,4 +70,15 @@ li::first-letter {
   flex-direction: column;
   align-items: center;
   margin-top: 25px;
+}
+.weather-temperature .units a {
+  text-decoration: none;
+}
+
+.weather-temperature .units a.active {
+  color: #7075a5;
+  cursor: default;
+}
+.weather-temperature .units a.active:hover {
+  text-decoration: none;
 }
