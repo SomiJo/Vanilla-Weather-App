@@ -20,6 +20,29 @@ function formqatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+        <div class="weather-forecast-date">
+            ${day}
+                </div>
+                     <img src="#" alt="Mostly-sunny" id="icon" width="40px" />
+                        <div class="weather-forecast-temperature">
+                            <span class="weather-forecast-temperature-max">18°</span>
+                             <span class="weather-forecast-temperature-min"> 12°</span>
+                        </div>
+         </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
 function displayInformation(responce) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(responce.data.temperature.current);
@@ -92,3 +115,4 @@ window.onload = function () {
     axios.get(apiUrl).then(displayInformation);
   }
 };
+displayForecast();
