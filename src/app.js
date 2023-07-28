@@ -43,6 +43,11 @@ function displayForecast() {
 
   forecastElement.innerHTML = forecastHTML;
 }
+function getForecast(coordinates) {
+  let apiKey = "8a8edboca2bc2t75fa3dfdc820f30444";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 function displayInformation(responce) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(responce.data.temperature.current);
@@ -62,7 +67,10 @@ function displayInformation(responce) {
   iconElement.setAttribute("src", responce.data.condition.icon_url);
 
   celsiusTemp = responce.data.temperature.current;
+
+  getForecast(responce.data.coordinates);
 }
+
 function search(city) {
   let apiKey = "8a8edboca2bc2t75fa3dfdc820f30444";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -115,4 +123,3 @@ window.onload = function () {
     axios.get(apiUrl).then(displayInformation);
   }
 };
-displayForecast();
